@@ -1,6 +1,6 @@
 {
   "name": "enb-babelify",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "ENB Babel tech",
   "main": "index.js",
   "scripts": {
@@ -21,6 +21,15 @@
   },
   "homepage": "https://github.com/frux/enb-babelify#readme",
   "dependencies": {
-    "babel-core": "^6.5.1"
+    "babel-core": "^6.9.1",
+    "babel-plugin-transform-es2015-arrow-functions": "^6.8.0",
+    "babel-plugin-transform-es2015-block-scoped-functions": "^6.8.0",
+    "babel-plugin-transform-es2015-block-scoping": "^6.9.0",
+    "babel-plugin-transform-es2015-destructuring": "^6.9.0",
+    "babel-plugin-transform-es2015-function-name": "^6.9.0",
+    "babel-plugin-transform-es2015-parameters": "^6.9.0",
+    "babel-plugin-transform-es2015-shorthand-properties": "^6.8.0",
+    "babel-plugin-transform-es2015-spread": "^6.8.0",
+    "babel-plugin-transform-es2015-template-literals": "^6.8.0"
   }
 }

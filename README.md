@@ -26,7 +26,10 @@ module.exports = function(config) {
     ]);
     
     // build browser.js file
-    node.addTech([ babelBrowserTech, { sourceTarget: '?.browser.js' } ]);
+    node.addTech([babelBrowserTech, {
+        source: '?.browser.js',
+        target: '?.browser.es5.js'
+    }]);
     node.addTarget('?.browser.es5.js');
   });
 };

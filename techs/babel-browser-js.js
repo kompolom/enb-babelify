@@ -1,6 +1,20 @@
 var enb = require('enb'),
-	babel = require('babel-core'),
-	buildFlow = enb.buildFlow || require('enb/lib/build-flow');
+    babel = require('babel-core'),
+    babelOptions = {
+        compact : false,
+        plugins: [
+            'transform-es2015-arrow-functions',
+            'transform-es2015-block-scoped-functions',
+            'transform-es2015-function-name',
+            'transform-es2015-block-scoping',
+            'transform-es2015-destructuring',
+            'transform-es2015-parameters',
+            'transform-es2015-shorthand-properties',
+            'transform-es2015-spread',
+            'transform-es2015-template-literals'
+        ]
+    };
+    buildFlow = enb.buildFlow || require('enb/lib/build-flow');
 
 /**
  * @class BrowserJsTech
@@ -11,7 +25,7 @@ var enb = require('enb'),
  *
  * @param {Object}    [options]                              Options
  * @param {String}    [options.target='?.browser.es5.js']    Path to compiled file.
- * @param {String}    [options.sourceTarget]                 Path to a source Javascript code
+ * @param {String}    [options.source]                 Path to a source Javascript code
  * @param {String}    [options.babelOptions={}]              Options provided to Babel
  *
  * @example
@@ -40,17 +54,17 @@ var enb = require('enb'),
  *         ]);
  *
  *         // build browser.js file
- *         node.addTech([ BabelBrowser, { sourceTarget: '?.browser.js' } ]);
+ *         node.addTech([ BabelBrowser, { source: '?.browser.js' } ]);
  *         node.addTarget('?.browser.es5.js');
  *     });
  * };
  */
 module.exports = buildFlow.create()
-	.name('babel-browser-js')
-	.target('target', '?.browser.es5.js')
-	.defineOption('babelOptions', {})
-	.useSourceText('sourceTarget', '')
-	.builder(function (source) {
-		return babel.transform(source, this._babelOptions).code;
-	})
-	.createTech();
+    .name('babel')
+    .target('target', '?.es5.js')
+    .defineOption('babelOptions', {})
+    .useSourceText('source', '')
+    .builder(function (source) {
+        return babel.transform(source, babelOptions).code;
+    })
+    .createTech();
