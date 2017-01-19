@@ -3,6 +3,7 @@ var enb = require('enb'),
     babelOptions = {
         compact : false,
         plugins: [
+            'transform-object-assign',
             'transform-es2015-arrow-functions',
             'transform-es2015-block-scoped-functions',
             'transform-es2015-function-name',
