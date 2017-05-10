@@ -66,6 +66,6 @@ module.exports = buildFlow.create()
     .defineOption('babelOptions', {})
     .useSourceText('source', '')
     .builder(function (source) {
-        return babel.transform(source, babelOptions).code;
+        return babel.transform(source, this._babelOptions).code;
     })
     .createTech();
